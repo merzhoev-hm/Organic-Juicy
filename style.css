@@ -1,0 +1,797 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:wght@300;400;700;900&family=PT+Sans:wght@400;700&family=Secular+One&display=swap');
+
+/* -------- Общие стили -------- */
+
+/*
+font-family: "Secular One", sans-serif; 400
+font-family: "PT Sans", sans-serif; 400
+font-family: "Fira Sans Condensed", sans-serif; 300, 400, 900
+*/
+
+body{
+    font-family: "PT Sans", sans-serif; 
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.container{
+    max-width: 1920px;
+    margin: 0 auto;
+}
+
+.btn {
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+
+    border: 3px solid #fff ;
+    padding: 10px 20px;
+
+    transition: opacity 0.2s;
+}
+
+.btn:hover{
+    opacity: 0.6;
+}
+
+.btn:active{
+    opacity: 0.4;
+}
+
+
+.common {
+    color: #fff;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 30px;
+    padding: 30px;
+}
+
+.title {
+    font-family: "Fira Sans Condensed", sans-serif;
+    font-weight: 300;
+    font-size: 24px;
+    width: 140px;
+    line-height: 1;
+}
+
+.title span {
+    font-size: 60px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    display: block;
+}
+
+.title span::first-line {
+    font-weight: 900;
+}
+
+.common__desc {
+    max-width: 60%;
+    hyphens: auto;
+}
+
+button{
+    -webkit-tap-highlight-color: transparent;
+}
+
+.hide{
+    display: none;
+}
+
+/* -------- Общие стили -------- */
+
+/* -------- header -------- */
+
+.header {
+    display: grid;
+    /* grid-template-rows: max-content  ;
+    grid-template-columns: 1fr 1fr 100px;
+    grid-template-areas: "logo nav search"; */
+    grid-template: ". logo nav search" max-content / 2fr 1fr 2.5fr 0.5fr ;
+
+    align-items: center;
+    justify-items: start;
+
+    padding: 20px 0;
+
+    text-transform: uppercase;
+
+    overflow: hidden;
+}
+
+.logo{
+    font-family: "Secular One", sans-serif;
+    font-weight: 400; 
+    color: #EB564f;
+    font-size: 24px;
+    line-height: 1;
+
+    max-width: 150px;
+    grid-area: logo;
+
+    transition: all 0.2s;
+}
+
+.header__nav{
+    grid-area: nav;
+    transform: translateX(-15px);
+}
+
+.header__nav ul{
+    display: flex;
+    gap: 20px;
+}
+
+.header__nav a{
+    padding: 15px;
+    transition: color 0.2s ;
+    position: relative;
+}
+
+.header__nav a:hover, .logo:hover{
+    color: #54B9B4;
+}
+
+.header__nav a:active{
+    color: #3b9893;
+}
+
+.header__nav a::after{
+    content: "";
+    display: block;
+    width: 80%;
+    height: 100%;
+    background-color: #54B9B4;
+    position: absolute;
+    left: 15px;
+    bottom: -150%;
+    transition: bottom 0.3s, background-color 0.2s;
+}
+
+.header__nav a:hover::after{
+    bottom: -80%;
+}
+
+.header__nav a:active::after{
+    background-color: #3b9893;
+}
+
+.search {
+    grid-area: search;
+}
+
+.search__icon{
+    transition: all 0.2s;
+}
+
+.search__icon:hover{
+    fill: #54B9B4;
+}
+
+.search__icon:active{
+    fill: #3b9893;
+}
+
+/* -------- header -------- */
+
+
+/* -------- main -------- */
+
+.main {
+    display: grid; 
+    /* grid-template-rows: 3fr 1fr 3fr;
+    grid-template-columns: 2fr 1fr 1.5fr 1.5fr;
+    grid-template-areas: "slider-arrows healthy thirsty thirsty"
+                         "slider-arrows healthy slider-dots orange"
+                         "freshy healthy slider-dots orange";  */
+
+    grid-template: "slider-arrows healthy thirsty thirsty" 3fr
+                   "slider-arrows healthy slider-dots orange" 1fr
+                   "freshy healthy slider-dots orange" 3fr / 2fr 1fr 1.5fr 1.5fr;
+}
+
+/* -------- SLIDER-ARROWS -------- */
+
+.slider-arrows {
+    grid-area: slider-arrows;
+    position: relative;
+}
+
+.slider-arrows__items-wrapper {
+    width: 100%;
+    height: 100%;
+
+    filter: brightness(80%);
+
+    display: flex;
+    justify-content: center;
+}
+
+.slider-arrows__item {
+ 
+}
+
+.slider-arrows__nav {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    transform: translateY(-50%);
+}
+
+.slider-arrows__arrow {
+    color: #fff;
+    font-size: 30px;
+
+    border: 3px solid #fff;
+    border-radius: 50%;
+
+    width: 50px;
+    height: 50px;
+
+    transition: opacity 0.2s;
+}
+
+.slider-arrows__arrow:hover{
+    opacity: 0.6;
+}
+
+.slider-arrows__arrow:active{
+    opacity: 0.4;
+}
+
+
+.slider-arrows__item{
+    animation: fade 1s;
+}
+
+.slider-dots__item{
+    animation: fade 1s;
+}
+
+@keyframes fade {
+    from{
+        opacity: 0.3;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+/* -------- SLIDER-ARROWS -------- */
+
+/* -------- SLIDER-dots -------- */
+.slider-dots {
+    grid-area: slider-dots;
+    position: relative;
+}
+
+.slider-dots__items-wrapper {
+    width: 100%;
+    height: 100%;
+
+    filter: brightness(80%);
+
+    display: flex;
+    justify-content: center;
+}
+
+.slider-dots__item {
+
+}
+
+.slider-dots__btn-wrapper {
+    position: absolute;
+    left: 0;
+    top: 50%;
+
+    transform: translateY(-50%);
+    width: 100%;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.slider-dots__nav {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+
+    position: absolute;
+    left: 0;
+    bottom: 40px;
+    width: 100%;
+}
+
+.slider-dots__nav-item {
+    width: 10px;
+    height: 10px;
+
+    background-color: #fff;
+    border-radius: 50%;
+    transition: opacity 0.2s;
+}
+
+.slider-dots__nav-item:hover {
+    opacity: 0.8;
+}
+
+.slider-dots__nav-item:active {
+    opacity: 0.6;
+}
+
+.slider-dots__nav-item--active {
+    background-color: transparent;
+    border: 1px solid #fff;
+}
+/* -------- SLIDER-dots -------- */
+
+/* -------- freshy -------- */
+
+.freshy {
+   grid-area: freshy; 
+   
+   background-color: #BEE163;
+}
+
+/* -------- healthy -------- */
+
+.healthy {
+   grid-area: healthy; 
+   
+   background-color: #FF494B;
+   padding-bottom: 100px;
+}
+
+.common--col-rev{
+    flex-direction: column-reverse;
+    justify-content: flex-start;
+}
+
+.common--col-rev .common__desc{
+    max-width: 140px;
+}
+
+/* -------- thirsty -------- */
+
+.thirsty {
+   grid-area: thirsty; 
+   background-color: #FFBA4A;
+}
+
+.thirsty .common__desc{
+    max-width: 250px;
+}
+
+.common--row-rev{
+    flex-direction: row-reverse;
+}
+
+.common--row-rev .common__desc{
+    text-align: right;
+}
+
+/* -------- orange -------- */
+
+.orange{
+    grid-area: orange;
+    position: relative;
+}
+
+.orange__img{
+    width: 100%;
+    height: 100%;
+    filter: brightness(60%);
+}
+
+.orange__btn-wrapper {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.orange__arrow {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
+
+.orange__arrow:hover {
+    opacity: 0.8;
+}
+
+.orange__arrow:active {
+    opacity: 0.6;
+}
+/* -------- main -------- */
+
+/* -------- wrapper-down -------- */
+
+.wrapper-down {
+    display: grid;
+    grid-template:"footer sidebar" 1fr / 4.5fr 1.5fr;
+}
+
+/* -------- footer -------- */
+
+.footer {
+    grid-area: footer;
+    display: grid;
+    grid-template: ". socials form logo" max-content
+                   ". . . copy" 100px / 1fr 1fr 1.5fr 1fr ;
+    background-color: #2f2f2f;
+    color: #fff;
+    padding-top: 80px;
+    align-items: end;
+    align-content: center;
+}
+
+.socials {
+    grid-area: socials;
+    display: flex;
+    gap: 15px;
+}
+
+.socials__link {
+    border: 2px solid #fff;
+    border-radius: 40px;
+
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: opacity 0.2s;
+}
+
+.socials__link:hover{
+    opacity: 0.8;
+}
+
+.socials__link:active{
+    opacity: 0.6;
+}
+
+.form {
+    grid-area: form;
+    text-transform: uppercase;
+
+}
+
+.form__title {
+    font-size: 18px;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+}
+
+.form__row {
+    display: flex;
+}
+
+.form__input {
+    height: 40px;
+    width: 200px;
+    padding: 0 20px;
+    outline: none;
+    background-color: #ffffffde;
+    text-transform: uppercase;
+}
+
+.form__input:focus {
+    background-color: #ffffff;
+}
+
+.form__submit-btn {
+    color: #fff;
+    background-color: #00C2BA;
+    height: 40px;
+    padding: 0 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+
+    transition: background-color 0.2s;
+}
+
+.form__submit-btn:hover {
+    background-color: #00eae0;
+}
+
+.form__submit-btn:active {
+    background-color: #00aaa3;
+}
+
+.logo__img {
+
+}
+
+.footer__logo {
+    grid-area: logo;
+    justify-self: center;
+}
+
+.copy {
+    grid-area: copy;
+    justify-self: center;
+    align-self: center;
+    color: #6a6a6a;
+}
+/* -------- footer -------- */
+
+/* -------- sidebar -------- */
+
+.sidebar {
+    grid-area: sidebar;
+
+    background-color: #00C2BA;
+}
+
+.sidebar .title {
+    width: 100px;
+}
+
+.sidebar button {
+    margin-top: 20px;
+}
+
+.btn--rounded {
+    border-radius: 25px;
+}
+
+
+
+/* -------- sidebar -------- */
+
+/* -------- wrapper-down -------- */
+
+.slider-arrows__item, .slider-dots__item{
+    width: 100%;
+    height: 100%;
+    
+}
+
+.slider-arrows, .slider-dots, .orange{
+    height: 400px;
+}
+
+/* -------- МЕДИА ЗАПРОСЫ -------- */
+@media(max-width: 1300px){
+    .footer{
+        grid-template:  "socials form logo" max-content
+                        ". . copy" 100px / 1fr 1.5fr 1fr ;
+                        padding-left: 5%;
+    }
+}
+
+@media(max-width: 1200px){
+    .main{
+        grid-template: "freshy freshy freshy healthy" 1fr
+                       "slider-arrows slider-arrows slider-arrows healthy" auto
+                       "thirsty thirsty thirsty thirsty" auto 
+                       "slider-dots slider-dots orange orange" auto / 1fr 0.5fr 0.5fr 1fr
+    }
+
+    .healthy{
+        padding-bottom: 40px;
+    }
+
+    .slider-arrows, .slider-dots, .orange{
+        height: 300px;
+        
+    }
+
+    
+
+    .wrapper-down {
+        grid-template:  "sidebar" max-content 
+                        "footer" max-content  / auto;
+    }
+
+    .common--row-rev{
+        padding-right: 140px;
+    }
+
+    .sidebar .common__desc{
+        max-width: 200px;
+    }
+
+    .sidebar{
+        padding-left: 130px;
+    }
+
+    .header{
+        grid-template: "logo nav search" max-content ;
+        justify-content: space-between;
+        padding: 20px;
+    }
+}
+
+@media(max-width: 800px){
+    .footer{
+        grid-template:  "socials" 
+                        "form" 
+                        "logo"
+                        "copy" auto / 1fr ;
+
+        justify-items: center;
+        text-align: center;
+        gap: 30px;
+        padding: 40px 20px;
+    }
+}
+
+@media(max-width: 730px){
+    
+    .header__nav{
+        display: none;
+    }
+
+    .search{
+            display: none;
+    }
+
+}
+
+@media(max-width: 600px){
+    .main{
+        grid-template-columns: 1fr;
+        grid-template-areas: "healthy" "slider-arrows" "freshy" "slider-dots" "thirsty" "orange" ;
+    }
+
+    .healthy{
+        padding-bottom: 30px;
+    }
+
+    .common--col-rev{
+        flex-direction: row-reverse;
+        justify-content: center;
+    }
+
+    .common--col-rev .common__desc, .thirsty .common__desc, .sidebar .common__desc, .common__desc{
+        max-width: unset;
+    }
+
+    .common--row-rev{
+        padding-right: 30px;
+    }
+
+    .sidebar{
+        padding-left: 30px;
+    }
+}
+
+@media(max-width: 600px){
+    .common{
+        padding:20px ;
+        gap: 15px;
+    }
+
+    .form__input{
+        width: 160px;
+    }
+}
+/* -------- МЕДИА ЗАПРОСЫ -------- */
+
+/* -------- Бургер меню -------- */
+
+.menu-icon {
+    width: 40px;
+    height: 30px;
+    position: relative;
+}
+
+.menu-icon::after, .menu-icon::before  {
+    content: "";
+    position: absolute;
+    left: 0;
+}
+
+.menu-icon::before{
+    top: 0;
+    transition: transform 0.3s, top 0.3s 0.3s;
+}
+
+.menu-icon::after{
+    bottom: 0;
+    transition: transform 0.3s, bottom 0.3s 0.3s ;
+}
+
+.menu-icon__line, .menu-icon::after, .menu-icon::before  {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: #000;
+}
+
+.menu-icon__active .menu-icon__line{
+    display: none;
+}
+
+.menu-icon__active::before{
+    transform: translateY(-50%) rotate(45deg);
+    top: 50%;
+
+    transition: top 0.3s, transform 0.3s 0.3s ;
+}
+
+.menu-icon__active::after{
+    transform: translateY(50%) rotate(-45deg);
+    bottom: 50%;
+
+    transition: bottom 0.3s, transform 0.3s 0.3s ;
+}
+
+.menu-icon{
+    display: none;
+}
+
+@media(max-width: 730px){
+    .header{
+        grid-template: "logo menu-icon" max-content / auto;
+    }
+    
+    .menu-icon{
+        display: block;
+        grid-area: menu-icon;
+        justify-self: end;
+    }
+
+    .header--mobile{
+        min-height: 100vh;
+
+        grid-template:  "logo menu-icon" max-content 
+                        "nav nav" max-content 
+                        "search search" ;
+
+        align-content: space-between;
+    }
+
+    .header--mobile .search,.header--mobile .header__nav{
+        display: block;
+        justify-self: center;
+    }
+
+    .header__nav ul{
+        flex-direction: column;
+        align-items: center;
+        transform: none;
+    }
+
+    .header__nav {
+        transform: none;
+    }
+
+    .header__nav a::after{
+        display: none;
+    }
+}
+
+/* .no-scroll{
+    overflow: hidden;
+} */
+
+
+/* -------- Бургер меню -------- */
+
+
+
